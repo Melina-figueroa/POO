@@ -1,11 +1,9 @@
-"use strict";
-export const __esModule = true;
-import figlet from 'figlet';
-figlet('¡¡Hola MARCOS!!', function (err, datos) {
+var figlet = require('figlet');
+figlet('Hello TDF!!', function (err, data) {
     if (err) {
-        console.log('Algo salió mal...');
+        console.log('Something went wrong...');
         console.dir(err);
         return;
     }
-    console.log(datos);
+    console.log(data);
 });
