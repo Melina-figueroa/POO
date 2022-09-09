@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "figlet": "^1.5.2",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.16"
+  }
+}
