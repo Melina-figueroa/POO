@@ -49,8 +49,30 @@ public getColor():string{
  public getConsumoElec():number{
     return this.consumoEnergetico;
  }
+ public getBalance():number{
+let balance: number = this.precioBase/this.peso;
+return balance;
+ }
+public getGamaElec():string{
+    let gamaProduc: string = " ";
+    if (this.getBalance() < 3000){
+        gamaProduc = 'Gama baja';
+    }else{
+        gamaProduc = 'Gama alta'
+    }
+    return gamaProduc;
+
+}
     }
   
   
-    let cafetera = new Electrodomestico ('Samsung',6000,'Rojo',900,2);
-console.log(cafetera.getNombre());
+    let cafetera_samsung = new Electrodomestico ('Samsung',6000,'Rojo',900,2);
+console.log('Nombre del producto '+ cafetera_samsung.getNombre());
+console.log('Balance del producto '+ cafetera_samsung.getBalance());
+console.log('Gama del producto '+ cafetera_samsung.getGamaElec());
+
+
+let cafetera_LG = new Electrodomestico ('LG',1000,'Negro',300,6)
+console.log('Nombre del producto '+ cafetera_LG.getNombre());
+console.log('Balance del producto '+ cafetera_LG.getBalance());
+console.log('Gama del producto '+ cafetera_LG.getGamaElec());
