@@ -36,7 +36,14 @@ var Electrodomestico = /** @class */ (function () {
         this.consumoEnergetico = consumoElec;
     };
     Electrodomestico.prototype.getConsumoElec = function () {
-        return this.consumoEnergetico;
+        var textoConsumo = '';
+        if (this.consumoEnergetico < 1000) {
+            textoConsumo = 'Bajo consumo';
+        }
+        else if (this.consumoEnergetico > 1000) {
+            textoConsumo = 'Alto consumo';
+        }
+        return textoConsumo;
     };
     Electrodomestico.prototype.getBalance = function () {
         var balance = this.precioBase / this.peso;
@@ -44,11 +51,11 @@ var Electrodomestico = /** @class */ (function () {
     };
     Electrodomestico.prototype.getGamaElec = function () {
         var gamaProduc = " ";
-        if (this.getBalance() < 3000) {
-            gamaProduc = 'Gama baja';
+        if (this.getBalance() < 3) {
+            gamaProduc = 'Baja';
         }
         else {
-            gamaProduc = 'Gama alta';
+            gamaProduc = 'Alta';
         }
         return gamaProduc;
     };
@@ -58,7 +65,9 @@ var cafetera_samsung = new Electrodomestico('Samsung', 6000, 'Rojo', 900, 2);
 console.log('Nombre del producto ' + cafetera_samsung.getNombre());
 console.log('Balance del producto ' + cafetera_samsung.getBalance());
 console.log('Gama del producto ' + cafetera_samsung.getGamaElec());
-var cafetera_LG = new Electrodomestico('LG', 1000, 'Negro', 300, 6);
+console.log('Consumo eléctrico ' + cafetera_samsung.getConsumoElec());
+var cafetera_LG = new Electrodomestico('LG', 1000, 'Negro', 1200, 6);
 console.log('Nombre del producto ' + cafetera_LG.getNombre());
 console.log('Balance del producto ' + cafetera_LG.getBalance());
 console.log('Gama del producto ' + cafetera_LG.getGamaElec());
+console.log('Consumo eléctrico ' + cafetera_LG.getConsumoElec());
