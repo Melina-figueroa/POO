@@ -1,4 +1,5 @@
-class Libro {
+import {GestorLibros} from './gestorLibro';
+export class Libro {
   private nombreDelAutor: string;
   private nombreDelLibro: string ;
   private categoria:string;
@@ -11,7 +12,18 @@ class Libro {
     this.nombreDelAutor = nAutor;
   }
   public obtenerNombreAutor():string{
-    return this.nombreAutor();
+    return this.nombreDelAutor;
   }
-
+  private nombreLibro(nLibro:string):void{
+    this.nombreDelLibro = nLibro;
+  }
+  public obtenerNombreLibro():string{
+    return this.nombreDelLibro;
+  }
+  public nombreCategoria(nCategoria:string):void{
+    this.categoria = nCategoria;
+  }
+  public obtenerNombreCategoria():string{
+    return this.categoria;
+  }
 }
