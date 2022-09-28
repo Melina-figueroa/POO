@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+var telefono_1 = require("./telefono");
+var telefonoConCamara_1 = require("./telefonoConCamara");
+var telefonoConRadio_1 = require("./telefonoConRadio");
+var samsung = new telefono_1.Telefono(true, 85);
+console.log(samsung.mandarMensajes("Este es un mensaje"));
+var samsungCamara = new telefonoConCamara_1.TelefonoConCamara(true, 45, true);
+console.log(samsungCamara.sacarFotos(false));
+var samsungConRadio = new telefonoConRadio_1.TelefonoConRadio(true, 50, 0);
+console.log(samsungConRadio.verFrecuenciaActual(801));
