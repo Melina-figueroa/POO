@@ -25,6 +25,9 @@ var Libro = /** @class */ (function () {
     Libro.prototype.obtenerNombreCategoria = function () {
         return this.categoria;
     };
+    Libro.prototype.toString = function () {
+        return 'Titulo: ' + this.obtenerNombreLibro() + ' \n ' + 'Autor: ' + this.obtenerNombreAutor() + ' \n ' + 'Genero: ' + this.obtenerNombreCategoria() + '';
+    };
     return Libro;
 }());
 exports.Libro = Libro;
