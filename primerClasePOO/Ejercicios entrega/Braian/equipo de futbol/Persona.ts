@@ -27,8 +27,8 @@ export class Persona{
         this.apellido = apellido;
     }
 
-    obtenerFechaNacimiento():string{
-        return this.fechaDeNacimiento.toString();
+    obtenerFechaNacimiento():Date{
+        return this.fechaDeNacimiento;
     }
 
     ingresarFechaNacimiento(pFechaDeNacimiento:Date,pFecha:number){
