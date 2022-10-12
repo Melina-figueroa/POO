@@ -2,10 +2,10 @@ import {Persona} from "./Persona"
 
 
 export abstract class Cuenta {
- numeroDeCuenta:number;
- saldo:number;
- cliente:Persona;
-constructor(pNumCuenta:number,pCliente:Persona){
+ protected numeroDeCuenta:number;
+ protected saldo:number;
+ protected cliente:Persona;
+constructor(pCliente:Persona,pNumCuenta:number){
     this.numeroDeCuenta = pNumCuenta;
     this.cliente = pCliente;
     this.saldo = 0;
@@ -28,6 +28,10 @@ constructor(pNumCuenta:number,pCliente:Persona){
    public obtenerCliente():Persona{
     return this.cliente;
    }
+  public ingreso(pIngreso:number):void{
+    console.log(pIngreso);
+    this.saldo = this.saldo + pIngreso;
+  }   
  abstract retirar(pRetiro:number):void;
  abstract actualizar():void;
 
