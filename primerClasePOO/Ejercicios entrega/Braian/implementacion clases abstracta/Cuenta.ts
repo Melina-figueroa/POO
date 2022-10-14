@@ -28,11 +28,7 @@ constructor(pCliente:Persona,pNumCuenta:number){
    public obtenerCliente():Persona{
     return this.cliente;
    }
-  public ingreso(pIngreso:number):void{
-    console.log(pIngreso);
-    this.saldo = this.saldo + pIngreso;
-  }   
  abstract retirar(pRetiro:number):void;
- abstract actualizar():void;
+ abstract actualizarSaldo():void;
 
 }

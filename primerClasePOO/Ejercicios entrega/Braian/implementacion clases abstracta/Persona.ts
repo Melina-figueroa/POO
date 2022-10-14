@@ -30,5 +30,9 @@ export class Persona{
     ingresarDni(pDni:number){
         this.numeroDeDni = pDni;
     }
+    toString():string{
+        return ' Cliente: ' + this.nombre+' '+this.apellido +' \n '+ 'Número de DNI: '+this.numeroDeDni +' \n '+ '';
+    }
+
 
 }
