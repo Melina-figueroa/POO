@@ -20,12 +20,14 @@ var Cuenta_1 = require("./Cuenta");
 var CajaDeAhorros = /** @class */ (function (_super) {
     __extends(CajaDeAhorros, _super);
     function CajaDeAhorros(pCliente, pCuenta) {
-        return _super.call(this, pCliente, pCuenta) || this;
+        var _this = _super.call(this, pCliente, pCuenta) || this;
+        _this.saldoMinimo = 100000;
+        return _this;
     }
-    CajaDeAhorros.prototype.ingresarRetiro = function (pSaldoMin) {
+    CajaDeAhorros.prototype.ingresarSaldoMinimo = function (pSaldoMin) {
         this.saldoMinimo = pSaldoMin;
     };
-    CajaDeAhorros.prototype.obtenerRetiro = function () {
+    CajaDeAhorros.prototype.obtenerSaldoMinimo = function () {
         return this.saldoMinimo;
     };
     CajaDeAhorros.prototype.ingresarInteres = function (pInteres) {
@@ -35,16 +37,20 @@ var CajaDeAhorros = /** @class */ (function (_super) {
         return this.interes;
     };
     CajaDeAhorros.prototype.retirar = function (pRetiro) {
-        var retiro = this.saldo - pRetiro;
-        if (0 < this.saldoMinimo) {
+        var restaSaldo = this.saldo - this.saldoMinimo;
+        if (restaSaldo > pRetiro) {
             this.saldo = this.saldo - pRetiro;
+            console.log('Retiro $' + pRetiro);
+        }
+        else {
+            console.log('Saldo insuficiente su minímo es $' + this.saldoMinimo);
         }
     };
     CajaDeAhorros.prototype.actualizarSaldo = function () {
         this.saldo = this.saldo * this.interes;
     };
     CajaDeAhorros.prototype.toString = function () {
-        return ' Número de cuenta: ' + this.numeroDeCuenta + ' \n ' + 'Interés aplicado: ' + this.interes + '%' + ' \n ' + 'Intereses generados: ' + this.saldo + '\n';
+        return 'Número de cuenta: ' + this.numeroDeCuenta + '\n' + 'Interés aplicado: ' + this.obtenerInteres() + '%' + '\n';
     };
     return CajaDeAhorros;
 }(Cuenta_1.Cuenta));

@@ -21,22 +21,23 @@ var CuentaCorriente = /** @class */ (function (_super) {
     __extends(CuentaCorriente, _super);
     function CuentaCorriente(pCliente, pCuenta) {
         var _this = _super.call(this, pCliente, pCuenta) || this;
-        _this.interesFijo = 0.015;
+        _this.interesFijo = 1.015;
         return _this;
     }
     CuentaCorriente.prototype.retirar = function (pRetiro) {
         if (this.saldo > pRetiro) {
             this.saldo = this.saldo - pRetiro;
+            console.log('Retiro' + ' ' + pRetiro);
+        }
+        else {
+            console.log('Saldo insuficiente');
         }
     };
     CuentaCorriente.prototype.actualizarSaldo = function () {
-        var total = 0;
         this.saldo = this.saldo * this.interesFijo;
-        total = this.saldo + this.interesFijo;
-        return total;
     };
     CuentaCorriente.prototype.toString = function () {
-        return 'Cuenta corriente ' + this.numeroDeCuenta + ' \n ' + 'Intereses generados: ' + this.saldo + ' ';
+        return 'Cuenta corriente ' + this.numeroDeCuenta + '\n' + ' Intereses generados: ' + this.interesFijo + '%' + '\n';
     };
     return CuentaCorriente;
 }(Cuenta_1.Cuenta));

@@ -5,6 +5,7 @@ export abstract class Cuenta {
  protected numeroDeCuenta:number;
  protected saldo:number;
  protected cliente:Persona;
+ protected interes:number;
 constructor(pCliente:Persona,pNumCuenta:number){
     this.numeroDeCuenta = pNumCuenta;
     this.cliente = pCliente;
@@ -22,6 +23,7 @@ constructor(pCliente:Persona,pNumCuenta:number){
    public obtenerSaldo():number{
     return this.saldo;
    }
+
    public ingresarCliente(pCliente:Persona):void{
     this.cliente = pCliente;
    } 
